@@ -39,7 +39,7 @@ Contributions to improve this project are welcome. Please follow the guidelines 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Contact
-If you have any questions or suggestions, feel free to contact us at [your-email@example.com](mailto:your-email@example.com).
+If you have any questions or suggestions, feel free to contact us at [(mailto:your-shekhar.devanshee@gmail.com).
 
 ---
 
