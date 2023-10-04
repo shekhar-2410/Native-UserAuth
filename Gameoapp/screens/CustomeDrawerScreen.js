@@ -34,11 +34,11 @@ const CustomeDrawerScreen = (props) => {
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView
         {...props}
-        contentContainerStyle={{ backgroundColor: "#8200d6" }}
+        contentContainerStyle={{ backgroundColor: "#8200d6",marginBottom:12 }}
       >
         <ImageBackground
           source={require("../assets/images/menu-bg.jpeg")}
-          style={{ padding: 30, marginTop: -60 }}
+          style={{ padding: 30, marginTop: -20 }}
         >
           <Image
             source={require("../assets/images/user-profile.jpg")}

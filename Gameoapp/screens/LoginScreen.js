@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
+  // StatusBar
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import SocialButton from "../component/SocialButton";
@@ -12,7 +13,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
-
+import { StatusBar } from "expo-status-bar";
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string().required("Password is required"),
@@ -50,6 +51,7 @@ const LoginScreen = ({ navigation }) => {
         touched,
       }) => (
         <View style={{ backgroundColor: "#fff", flex: 1, padding: 30 }}>
+           <StatusBar style="dark" />
           <View style={styles.imageContainer}>
             <Image
               style={styles.image}

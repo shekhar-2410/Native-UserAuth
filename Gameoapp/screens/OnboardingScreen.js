@@ -5,19 +5,25 @@ import {
   Pressable,
   ImageBackground,
 } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import { AntDesign } from "@expo/vector-icons";
-
+import { AuthContext } from "../context/AuthContext";
+import { StatusBar } from "expo-status-bar";
 const LandingScreen = ({ navigation }) => {
+  const { login, error } = useContext(AuthContext);
   return (
     <ImageBackground
       source={require("../assets/onboarding.jpg")} // Set the background image source here
       style={styles.backgroundImage}
     >
+      <StatusBar style="light" />
       <View style={styles.container}>
         <Text style={styles.testStyle}>GAMEON</Text>
         <View style={styles.imageConatiner}></View>
 
+        <View>
+          {error ? <Text style={styles.errorMessage}>{`${error} Login again !`}</Text> : null}
+        </View>
         <Pressable
           onPress={() => {
             navigation.navigate("Login");
@@ -78,5 +84,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  errorMessage: {
+    marginTop: -70,
+    color: "#fff",
+    fontWeight:"600",
+    fontSize:16
   },
 });

@@ -7,9 +7,11 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [userToken, setUserToken] = useState(null);
+  const [error, setError] = useState(null);
 
   const login = ({ email, password }) => {
     setIsLoading(true);
+    setError(null);
     axios
       .post(signinUrl, {
         email,
@@ -27,6 +29,9 @@ export const AuthProvider = ({ children }) => {
         console.log("Error:", error);
         if (error.response) {
           console.log("Response data:", error.response.data);
+          setError(error.response.data.error.message); // Set error message
+        } else {
+          setError("An error occurred while logging in.");
         }
         setIsLoading(false);
       });
@@ -67,6 +72,7 @@ export const AuthProvider = ({ children }) => {
         isLoading, // Make isLoading available in context
         login, // Make login function available in context
         logout, // Make logout function available in context
+        error,
       }}
     >
       {children}
